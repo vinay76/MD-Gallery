@@ -55,12 +55,13 @@ public class MainController extends AbstractController {
     }
 
     @RequestMapping("/order/{imagename}/{bucketname}")
-    public String order(Model model, @PathVariable(value = "imagename") String imagename, @PathVariable(value = "bucketname") String bucketName, HttpServletRequest request, HttpSession session) {
+    public String order(Model model, @PathVariable(value = "imagename") String imagename, @PathVariable(value = "bucketname") String bucketName, HttpServletRequest request) {
         //Add order to shopping cart
+        HttpSession session = request.getSession(true);
         String page = request.getParameter("page");
         int qty = Integer.parseInt(request.getParameter("qty"));
 
-        Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingCart");
+        Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
         if (shoppingCart == null) {
             shoppingCart = new HashMap<String, Integer>();
         }
@@ -88,4 +89,10 @@ public class MainController extends AbstractController {
             return main(model, request);
         }
     }
+
+    @RequestMapping("/cart")
+    public String showCart(Model model, HttpServletRequest request) {
+        return "cart";
+    }
+
 }

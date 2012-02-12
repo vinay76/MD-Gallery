@@ -1,7 +1,7 @@
 <%@ page import="com.darryl.util.JSPUtil" %>
 <%@ include file="header.jsp" %>
 <%
-    Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingCart");
+    Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
 %>
 <div id="page_content_left">
     <div class="title">
@@ -19,16 +19,16 @@
         if (shoppingCart == null || shoppingCart.isEmpty()) {
     %>
     <div class="content_text">
-        <span style="color:red">No items added to shopping cart. <a href="/gallery">Visit Gallery</a> to add items to your order.</span>
+        <span style="color:red">No items added to shopping cart. <a href="/web/gallery">Visit Gallery</a> to add items to your order.</span>
     </div>
     <%
     } else {
         for (String imageS : shoppingCart.keySet()) {
             int qty = shoppingCart.get(imageS);
-            McImage image = new McImage(imageS);
+            McImage image = new McImage(imageS.split("/")[0],imageS.split("/")[1]);
     %>
     <div class="content_text">
-        <img src="<%=image.getImageName()+McImage.smallExt%>" width="100" height="100"
+        <img src="<%=image.getUrl()%>" width="100" height="100"
              alt="<%=image.getImageDescription()%>" title="<%=image.getImageDescription()%>" class="gallery"/>
         <b>Photo Name:</b> <%=image.getImageName()%><br/>
         <b>Quantity:</b> <input type="text" size="3" maxlength="2" value="<%=qty%>"><br/><br/>
@@ -46,8 +46,8 @@
     %>
     <div class="content_text">
         <b>Total Quantity:</b> <%=total%><br/>
-        <b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value=<%=coupon%>><br/>
-        <b>Shipping Cost:</b> $5.99 (USPS Priority Shipping)<br/>
+        <b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value="<%=coupon%>" readonly disabled name="coupon"> (applied automatically for valid orders)<br/><br/>
+        <b>Shipping Cost:</b> $5.99 (USPS Priority Shipping)<br/><br/>
         <b>Total:</b> $<%=JSPUtil.applyCoupon(coupon, total)+5.99%>
     </div>
     <%
