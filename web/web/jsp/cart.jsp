@@ -25,10 +25,10 @@
     } else {
         for (String imageS : shoppingCart.keySet()) {
             int qty = shoppingCart.get(imageS);
-            McImage image = new McImage(imageS);
+            McImage image = new McImage(imageS.split("/")[0],imageS.split("/")[1]);
     %>
     <div class="content_text">
-        <img src="<%=image.getImageName()+McImage.smallExt%>" width="100" height="100"
+        <img src="<%=image.getUrl()%>" width="100" height="100"
              alt="<%=image.getImageDescription()%>" title="<%=image.getImageDescription()%>" class="gallery"/>
         <b>Photo Name:</b> <%=image.getImageName()%><br/>
         <b>Quantity:</b> <input type="text" size="3" maxlength="2" value="<%=qty%>"><br/><br/>
