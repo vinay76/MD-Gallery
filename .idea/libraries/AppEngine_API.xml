@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="AppEngine API">
+    <CLASSES>
+      <root url="file://C:/Software/appengine-java-sdk-1.6.2/lib/user" />
+      <root url="file://$PROJECT_DIR$/web/web/WEB-INF/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/web/web/WEB-INF/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/web/web/WEB-INF/lib" recursive="false" />
+    <jarDirectory url="file://C:/Software/appengine-java-sdk-1.6.2/lib/user" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/web/web/WEB-INF/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
