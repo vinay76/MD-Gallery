@@ -42,7 +42,7 @@
         Current Specials
     </div>
     <div class="special" id="special">
-        SPECIAL OFFER<br/>
+        SPECIAL OFFER (2FREE)<br/>
         TWO (2) 13X19 PHOTO PRINTS<br/>
         FOR $75
     </div>
@@ -78,21 +78,6 @@
         <img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0" class="more"/>
         </div>
         <div class="right"><a href="/web/gallery"> Visit gallery</a></div>
-    </div>
-</div>
-
-
-<div id="page_bottom">
-    <div class="title">
-        Find me on
-    </div>
-    <div class="social-links">
-        <a href="#" class="linkedin">linkedin</a>
-        <a href="#" class="facebook">facebook</a>
-        <a href="#" class="twitter">twitter</a>
-        <a href="#" class="picasa">picasa</a>
-
-        <div class="cl">&nbsp;</div>
     </div>
 </div>
 

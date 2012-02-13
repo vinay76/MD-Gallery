@@ -95,4 +95,13 @@ public class MainController extends AbstractController {
         return "cart";
     }
 
+    @RequestMapping("/privacy")
+    public String privacy() {
+        return "privacy";
+    }
+
+    @RequestMapping("/copyright")
+    public String copyright() {
+        return "copyright";
+    }
 }

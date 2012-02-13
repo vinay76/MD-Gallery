@@ -60,72 +60,100 @@
         Customer Details
     </div>
     <div class="content_text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-    </div>
-    <div class="content_text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum
+        Provide your contact details and shipping address. You will be contacted soon for payment details.
     </div>
     <div id="login">
-        <label>Name:</label><br/>
-        <input type="text" name="user" class="input"/><br/>
-
-        <div class="clear"></div>
-        <label>Phone:</label><br/>
-        <input type="text" name="sdfg" class="input"/>
-
-        <div class="clear"></div>
-        <label>Email:</label><br/>
-        <input type="text" name="payuity" class="input"/>
-
-        <div class="clear"></div>
-        <label>Address 1:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>Address 2:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>City:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>State:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>Zip:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>Phone:</label><br/>
-        <input type="text" name="rtyu" class="input"/>
-
-        <div class="clear"></div>
-        <label>Comments:</label><br/>
-        <textarea name="text" cols="" rows="" class="textarea"></textarea>
+        <table>
+            <tr>
+                <td align="left">
+                    <label>Name:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="name" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Phone:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="phone" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Email:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="email" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Address 1:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="line1" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Address 2:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="line2" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>City:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="rtyu" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>State:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="rtyu" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Zip:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <input type="text" name="rtyu" class="input"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <label>Comments:</label>&nbsp;
+                </td>
+                <td align="right">
+                    <textarea name="text" cols="" rows="" class="textarea"></textarea>
+                </td>
+            </tr>
+        </table>
 
         <div class="clear"></div>
         <div style="padding-left:90px;">
-            <div class="right"><a href="gallery.html">Send</a></div>
-            <div class="left"><img src="images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
+            <div class="right"><a href="/web/gallery">Submit Order</a></div>
+            <div class="left"><img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
                                    class="more"/></div>
         </div>
     </div>
 </div>
-
 <div id="page_bottom">
-    <div class="title">
-        Current Specials
-    </div>
-    <div class="content_text">
-        Specials Appear Here
+    <div id="soon" class="special">
+        COMING SOON!!!
+        Google Checkout & Paypal OPTIONS
     </div>
 </div>
 
+<script type="text/javascript">
+    $("#soon").FontEffect({shadow:false, gradient:false, mirror:false, outline:true});
+</script>
 <%@ include file="footer.jsp" %>
