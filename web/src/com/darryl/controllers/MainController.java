@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -90,7 +91,7 @@ public class MainController extends AbstractController {
         }
     }
 
-    @RequestMapping("/cart")
+    @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String showCart(Model model, HttpServletRequest request) {
         return "cart";
     }
@@ -103,5 +104,15 @@ public class MainController extends AbstractController {
     @RequestMapping("/copyright")
     public String copyright() {
         return "copyright";
+    }
+
+    @RequestMapping(value = "/cart/submit", method = RequestMethod.POST)
+    public String submitCart(Model model, HttpServletRequest request) {
+        return "cart";
+    }
+
+    @RequestMapping(value = "/cart/update", method = RequestMethod.POST)
+    public String updateCart(Model model, HttpServletRequest request) {
+        return "cart";
     }
 }
