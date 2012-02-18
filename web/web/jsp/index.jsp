@@ -94,7 +94,7 @@
 
 <script type="text/javascript">
     $(function(){
-        $("#warning_dialog").fancybox({'modal' : true, 'autoScale': false});
+        $("#warning_dialog").fancybox({'modal' : true, 'autoScale': false, 'overlayColor' : '#660033', 'overlayOpacity': 0.9});
         $('#warning_dialog').trigger('click')
 
     });
