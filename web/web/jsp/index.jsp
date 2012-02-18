@@ -79,9 +79,25 @@
         </div>
         <div class="right"><a href="/web/gallery"> Visit gallery</a></div>
     </div>
+
+    <a href="#content-div" class="fancybox" id="warning_dialog"></a>
+    <div style="display: none">
+        <div id="content-div">
+            <h2 style="color: red">You must be 18 years or older to enter.</h2>
+
+            <p style="color: #000000;">Please confirm your age.</p>
+
+            <input type="button" value="Yes I am 18 or older." onclick="$.fancybox.close();">
+            <input type="button" value="No, take me out of here..." onclick="window.location = 'http://www.google.com/';">
+    </div>
 </div>
 
 <script type="text/javascript">
+    $(function(){
+        $("#warning_dialog").fancybox({'modal' : true, 'autoScale': false});
+        $('#warning_dialog').trigger('click')
+
+    });
     $("#special").FontEffect({shadow:false, gradient:true});
 </script>
 <%@ include file="footer.jsp" %>
