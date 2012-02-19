@@ -1,8 +1,11 @@
 package com.darryl.controllers;
 
 import com.darryl.model.McImage;
+import com.darryl.model.Order;
+import com.darryl.model.OrderItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +40,7 @@ public class MainController extends AbstractController {
     @RequestMapping("/gallery/{bucketname}")
     public String gallery(Model model, @PathVariable(value = "bucketname") String bucketname, HttpServletRequest request) {
         request.setAttribute("images", bucketInformation);
-        request.setAttribute("bucketname", bucketname);
+        request.setAttribute("bucketname", bucketname);//TODO: if bucket name ends with .com, that part is truncated
 //        model.addAttribute("images", bucketInformation);
 //        model.addAttribute("bucketname", bucketname);
         return "gallery";
@@ -67,11 +70,11 @@ public class MainController extends AbstractController {
             shoppingCart = new HashMap<String, Integer>();
         }
 
-        Integer currentQty = shoppingCart.get(bucketName+"/"+imagename);
+        Integer currentQty = shoppingCart.get(bucketName + "/" + imagename);
         if (currentQty == null) {
             currentQty = 0;
         }
-        shoppingCart.put(bucketName+"/"+imagename, currentQty + qty);
+        shoppingCart.put(bucketName + "/" + imagename, currentQty + qty);
 
         Integer total = (Integer) session.getAttribute("totalQuantity");
         if (total == null) {
@@ -107,12 +110,21 @@ public class MainController extends AbstractController {
     }
 
     @RequestMapping(value = "/cart/submit", method = RequestMethod.POST)
-    public String submitCart(Model model, HttpServletRequest request) {
+    public String submitCart(Model model, HttpServletRequest request, @ModelAttribute Order order) {
+        //TODO:Do Something with Order
         return "cart";
     }
 
     @RequestMapping(value = "/cart/update", method = RequestMethod.POST)
-    public String updateCart(Model model, HttpServletRequest request) {
-        return "cart";
+    public String updateCart(Model model, HttpServletRequest request, @ModelAttribute Order order) {
+        //update session
+        HttpSession session = request.getSession(true);
+        Map<String, Integer> shoppingCart = new HashMap<String, Integer>();
+        for (OrderItem item : order.getItems()) {
+            shoppingCart.put(item.getImageName(), item.getQuantity());
+        }
+        session.setAttribute("shoppingcart", shoppingCart);
+        session.setAttribute("totalQuantity", order.getItems().size());
+        return "cartItems";
     }
 }

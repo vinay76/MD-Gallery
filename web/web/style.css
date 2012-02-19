@@ -297,3 +297,7 @@ text-decoration:none;color:#000000;}
     text-align: left;
     background-color: #dcdcdc;
 }
+
+.invalidField{
+    border: 1px solid red;
+}

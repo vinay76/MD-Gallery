@@ -23,57 +23,66 @@
                    class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key%>
             </a></li>
             <%
-                } else {
+            } else {
             %>
             <li><a href="/web/gallery/<%=key%>"
                    class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key%>
             </a></li>
         </ul>
     </div>
-    <%          }
+    <%
             }
         }
-        if(i%2 == 0){
+        if (i % 2 != 0) {
     %>
-        </ul>
-    </div>
+    </ul>
+</div>
+<%
+        }
+    }
+%>
+
+<div class="title">
+    <%=bucketname%>
+</div>
+<div class="content_text">
+    <%
+        List<McImage> bucketList = images.get(bucketname);
+        if (bucketList != null) {
+            for (McImage image : bucketList) {
+                String imageName = image.getImageName();
+    %>
+    <a href="/web/details/<%=image.getImageName()%>/<%=image.getBucketName()%>/gallery" class="box">
+        <img src="<%=image.getUrl()%>" width="100" height="100" alt="<%=image.getImageDescription()%>"
+             title="<%=image.getImageDescription()%>" class="gallery"/>
+    </a>
+    <%
+            }
+        } else {
+    %>
+    <br/>
+    <span style="color:red">Oops! the gallery is empty. More images coming soon. Until then checkout the other folders.</span>
+    <br/>
     <%
         }
     %>
+</div>
 
-    <div class="title">
-        <%=bucketname%>
-    </div>
-    <div class="content_text">
-        <%
-            List<McImage> bucketList = images.get(bucketname);
-            if (bucketList != null) {
-                for (McImage image : bucketList) {
-                    String imageName = image.getImageName();
-        %>
-        <a href="<%=image.getUrl()%>" class="box">
-            <img src="<%=image.getUrl()%>" width="100" height="100" alt="<%=image.getImageDescription()%>"
-                 title="<%=image.getImageDescription()%>" class="gallery"/>
-        </a>
-        <%
-                }
-            }
-        %>
+<%--
+<div class="menu_navigation">
+    <div id="left">
+        <div class="left"><img src="/images/more_l.jpg" width="20" height="20" alt="more" title="more" border="0"
+                               class="more"/></div>
+        <div class="right"><a href="gallery.html">Previous page</a></div>
     </div>
 
-    <div class="menu_navigation">
-        <div id="left">
-            <div class="left"><img src="/images/more_l.jpg" width="20" height="20" alt="more" title="more" border="0"
-                                   class="more"/></div>
-            <div class="right"><a href="gallery.html">Previous page</a></div>
-        </div>
-
-        <div id="right">
-            <div class="right"><a href="gallery.html">Next page</a></div>
-            <div class="left"><img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
-                                   class="more"/></div>
-        </div>
+    <div id="right">
+        <div class="right"><a href="gallery.html">Next page</a></div>
+        <div class="left"><img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
+                               class="more"/></div>
     </div>
 </div>
+--%>
+<%--</div>--%>
 
 <%@ include file="footer.jsp" %>
