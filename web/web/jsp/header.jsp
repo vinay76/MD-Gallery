@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/js/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="all" />
 
     <script src="/js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/jquery-fonteffect-1.0.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/jquery-ui-1.8.5.custom.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>

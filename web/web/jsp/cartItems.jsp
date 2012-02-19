@@ -1,3 +1,4 @@
+<%@ page import="com.darryl.util.JSPUtil" %>
 <%
     Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
 //    int total = (Integer) session.getAttribute("totalQuantity");

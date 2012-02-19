@@ -63,7 +63,7 @@ public class MainController extends AbstractController {
         //Add order to shopping cart
         HttpSession session = request.getSession(true);
         String page = request.getParameter("page");
-        int qty = Integer.parseInt(request.getParameter("qty"));
+        int qty = Integer.parseInt(request.getParameter("qty") == null ? "0" : request.getParameter("qty"));
 
         Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
         if (shoppingCart == null) {

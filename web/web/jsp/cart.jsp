@@ -1,4 +1,3 @@
-<%@ page import="com.darryl.util.JSPUtil" %>
 <%@ include file="header.jsp" %>
 <form id="orderform" action="/web/cart" method="POST">
     <div id="page_content_left">
@@ -177,18 +176,31 @@
 </div>
 
 <script type="text/javascript">
-    $("#soon").FontEffect({shadow:false, gradient:false, mirror:false, outline:true});
-    $("#order").click(function(){
-        //check if the order quantity is valid
-        if(!$("#total") || !$("#total").val() || $("#total").val() <= 0){
-            $('#error').html("<li>No order to submit. <a href='/web/gallery'>Visit Gallery</a> to add items to your order.</li>");
-            return;
-        }
-        //now validate the submit form
-        if(!validateCustomerInfo()){
-            $("#orderform").attr("action","/web/cart/submit");
-            $("#orderform").submit();
-        }
+    $(function(){
+        $("#soon").FontEffect({shadow:false, gradient:false, mirror:false, outline:true});
+        $("#order").click(function(){
+            //check if the order quantity is valid
+            if(!$("#total") || !$("#total").val() || $("#total").val() <= 0){
+                $('#error').html("<li>No order to submit. <a href='/web/gallery'>Visit Gallery</a> to add items to your order.</li>");
+                return;
+            }
+            //now validate the submit form
+            if(!validateCustomerInfo()){
+                $("#orderform").attr("action","/web/cart/submit");
+                $("#orderform").submit();
+            }
+        });
+        $("#update").click(function(){
+//            alert("update called");
+//        $("#orderform").attr("action","/web/cart/update");
+            $("#orderform").ajax({
+                url: "/web/cart/update",
+                type: "POST",
+                success: function(data){
+                    $('#page_content_left').html(data);
+                }
+            });
+        });
     });
     function validateCustomerInfo() {
         var error = false;
@@ -264,15 +276,5 @@
         }
         return error;
     }
-    $("#update").click(function(){
-//        $("#orderform").attr("action","/web/cart/update");
-        $("#orderform").ajax({
-                url: "/web/cart/update",
-                type: "POST",
-                success: function(data){
-                    $('#page_content_left').html(data);
-                }
-        });
-    });
 </script>
 <%@ include file="footer.jsp" %>
