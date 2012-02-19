@@ -1,8 +1,11 @@
 </div>
 <div id="footer">
     <div id="footer_content">
-        <div id="copyrights">
-            Lhamo and Kumar.&copy; All Rights Reserved 2012
+        <div id="copyrights" style="padding-top: 0px">
+            <ul class="footer_menu">
+                <li><a href="/web/copyright" class="nav2">Copyright&copy;</a></li>
+                <li><a href="/web/privacy" class="nav2">Privacy Policy</a></li>
+            </ul>
         </div>
         <div>
             <ul class="footer_menu">
@@ -12,8 +15,6 @@
                 %>
                 <li><a href="/web/gallery" class="nav2">gallery</a></li>
                 <li><a href="/web/contact" class="nav2">contact</a></li>
-                <li><a href="#" class="nav2">Copyright&copy;</a></li>
-                <li><a href="#" class="nav2">Privacy Policy</a></li>
                 <%
                     }
                 %>

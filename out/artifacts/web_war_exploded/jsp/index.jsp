@@ -42,7 +42,7 @@
         Current Specials
     </div>
     <div class="special" id="special">
-        SPECIAL OFFER<br/>
+        SPECIAL OFFER (2FREE)<br/>
         TWO (2) 13X19 PHOTO PRINTS<br/>
         FOR $75
     </div>
@@ -79,24 +79,25 @@
         </div>
         <div class="right"><a href="/web/gallery"> Visit gallery</a></div>
     </div>
-</div>
 
+    <a href="#content-div" class="fancybox" id="warning_dialog"></a>
+    <div style="display: none">
+        <div id="content-div">
+            <h2 style="color: red">You must be 18 years or older to enter.</h2>
 
-<div id="page_bottom">
-    <div class="title">
-        Find me on
-    </div>
-    <div class="social-links">
-        <a href="#" class="linkedin">linkedin</a>
-        <a href="#" class="facebook">facebook</a>
-        <a href="#" class="twitter">twitter</a>
-        <a href="#" class="picasa">picasa</a>
+            <p style="color: #000000;">Please confirm your age.</p>
 
-        <div class="cl">&nbsp;</div>
+            <input type="button" value="Yes I am 18 or older." onclick="$.fancybox.close();">
+            <input type="button" value="No, take me out of here..." onclick="window.location = 'http://www.google.com/';">
     </div>
 </div>
 
 <script type="text/javascript">
+    $(function(){
+        $("#warning_dialog").fancybox({'modal' : true, 'autoScale': false, 'overlayColor' : '#660033', 'overlayOpacity': 0.9});
+        $('#warning_dialog').trigger('click')
+
+    });
     $("#special").FontEffect({shadow:false, gradient:true});
 </script>
 <%@ include file="footer.jsp" %>
