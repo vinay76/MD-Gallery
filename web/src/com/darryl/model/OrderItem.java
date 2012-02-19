@@ -1,21 +1,35 @@
 package com.darryl.model;
 
-/**
- * Created by IntelliJ IDEA.
- * User: vkumar
- * Date: 2/7/12
- * Time: 9:38 PM
- * To change this template use File | Settings | File Templates.
- */
-public class OrderItem {
-    private McImage imageName;
-    private int quantity;
+import java.io.Serializable;
 
-    public McImage getImageName() {
+import javax.jdo.annotations.*;
+
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
+public class OrderItem implements Serializable{
+    private static final long serialVersionUID = -2740374621543432373L;//TODO: update it
+
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    Long Id;
+
+    @Persistent
+    private String imageName;
+
+    @ForeignKey(table = "Order")
+    @Persistent
+    private Long orderId;
+
+    @Persistent
+    private Integer quantity;
+
+    @Persistent
+    private Double unitPrice;
+
+    public String getImageName() {
         return imageName;
     }
 
-    public void setImageName(McImage imageName) {
+    public void setImageName(String imageName) {
         this.imageName = imageName;
     }
 
@@ -25,5 +39,29 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }

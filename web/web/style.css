@@ -291,3 +291,9 @@ text-decoration:none;color:#000000;}
     text-align: center;
     background-color: #ff6600;
 }
+.error {
+    color: red;
+    font-size: 1em;
+    text-align: left;
+    background-color: #dcdcdc;
+}

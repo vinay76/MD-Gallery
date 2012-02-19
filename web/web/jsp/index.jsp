@@ -19,7 +19,7 @@
         out any big biceps or thighs.
     </div>
     <div class="content_text">
-        <img src="/content/MUSTANG-4--300x213.gif" width="150" height="106" alt="pic" title="pic" class="pic"/>
+        <img src="/images/MUSTANG-4--300x213.gif" width="150" height="106" alt="pic" title="pic" class="pic"/>
         As for the cars,  because cars are such complex machines,  I like to use reference material, especially if the car is featured fairly prominently. Most
         of the time, the angle of the car I'm drawing won't match the shot of the car in the photo, so I have to improvise.  A very useful skill to develop is the ability
         to rotate the car maintains the same proportions and doesn't become too long or too compact as the viewing angle changes.
