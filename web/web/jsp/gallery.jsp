@@ -51,7 +51,7 @@
                 for (McImage image : bucketList) {
                     String imageName = image.getImageName();
         %>
-        <a href="/web/details/<%=imageName%>/<%=image.getBucketName()%>/gallery" class="box">
+        <a href="<%=image.getUrl()%>" class="box">
             <img src="<%=image.getUrl()%>" width="100" height="100" alt="<%=image.getImageDescription()%>"
                  title="<%=image.getImageDescription()%>" class="gallery"/>
         </a>

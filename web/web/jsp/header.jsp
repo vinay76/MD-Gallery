@@ -15,6 +15,20 @@
     <script src="/js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/fancybox/jquery.fancybox-1.3.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/fancybox/jquery.mousewheel-3.0.2.pack.js" type="text/javascript" charset="utf-8"></script>
+
+    <style type="text/css">
+        #inline1 {
+            overflow: auto;
+            width: 500px;
+            height: 100px;
+            background-color: #FDFDFD;
+        }
+
+        #inline1 {
+            display: none;
+        }
+
+    </style>
 </head>
 <%
    Integer total = (Integer)session.getAttribute("totalQuantity");
