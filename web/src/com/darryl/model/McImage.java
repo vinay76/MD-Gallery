@@ -28,7 +28,7 @@ public class McImage {
     }
 
     public String getImageDescription() {
-        return imageName.substring(0, imageName.lastIndexOf(".")-1).replace('_',' ').replace('-',' ');
+        return imageName.substring(0, imageName.lastIndexOf(".")).replace('_',' ').replace('-',' ');
     }
 
     public String getBucketName() {

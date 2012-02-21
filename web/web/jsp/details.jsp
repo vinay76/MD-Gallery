@@ -10,70 +10,72 @@
 </head>
 <body>
 <%
-    McImage imageName = (McImage)request.getAttribute("image");
-    String pageName = (String)request.getAttribute("page");
+    McImage imageName = (McImage) request.getAttribute("image");
+    String pageName = (String) request.getAttribute("page");
 %>
-<div id="main_content">
-    <div id="page_content">
-        <div class="title">
-            <%=imageName.getImageDescription()%>
-        </div>
+<div id="main_content1">
+    <div id="page_content1" style="text-align: center">
         <div>
-            <img src="<%=imageName.getUrl()%>" title="big" class="pic" align="middle"/>
-            <%--<img src="<%=imageName%>" width="668" height="351" title="big" class="pic" align="middle"/>--%>
+            <img src="<%=imageName.getUrl()%>" title="big" style="padding-top: 10px" align="middle"/>
+            <%--<img src="<%=imageName.getUrl()%>" width="668" height="351" title="big" class="pic" align="middle"/>--%>
         </div>
     </div>
-
-    <div id="page_content_left">
-        <div class="title">
-            Photo size
-        </div>
-        <div class="details">
-            <ul class="services">
-                <li>13" x 19"</li>
-            </ul>
-        </div>
+    <div class="title">
+        <br/>
+        Photo name: <span style="color: black; font-weight: bolder;"><%=imageName.getImageDescription()%></span>
+        <br/>
     </div>
-    <div id="page_content_right">
-        <%--<a href="#" class="nav_services_a">DOWNLOAD</a>--%>
+    <div class="title">
+        Photo size: <span style="color: black; font-weight: bolder;">13" x 19"</span>
+        <br/>
+    </div>
+    <div style="color:red" id="error" class="hide"></div>
+    <br/>
 
-        <div style="color:red" id="error" class="hide"></div>
-        <div class="title">
-            Add to Order
-        </div>
-        <form action="/web/order/<%=imageName.getImageName()%>/<%=imageName.getBucketName()%>" id="addForm" method="post">
-            <input type="hidden" name="page" value="<%=pageName%>"/>
-            <div class="content_text">
-                Quantity:&nbsp;&nbsp;<input type="text" size="4" maxlength="3" value="1" id="qty" name="qty"/>
-
-                <div style="padding-left:20px;" id="add">
-                    <div class="right"><a href="#">Add</a></div>
-                    <div class="left">
-                        <img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
-                             class="more"/>
+    <div class="title">
+        Add to Order
+    </div>
+    <form action="/web/order/<%=imageName.getImageName()%>/<%=imageName.getBucketName()%>" id="addForm"
+          method="post">
+        <input type="hidden" name="page" value="<%=pageName%>"/>
+        <table>
+            <tr>
+                <td>
+                    <div class="content_text">
+                        Quantity:&nbsp;&nbsp;<input type="text" size="4" maxlength="3" value="1" id="qty" name="qty"/>
                     </div>
-                </div>
-            </div>
-        </form>
-    </div>
+                </td>
+                <td>
+                    <div style="padding-left:20px;" id="add">
+                        <div class="right"><a href="#">Add</a></div>
+                        <div class="left">
+                            <img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
+                                 class="more"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
 <script type="text/javascript">
-    $("#add").click(function () {
-        var qty = $("#qty").val();
-        if (qty) {
-            if (isNaN(qty) || qty <= 0) {
-                $("#error").html("Enter a valid quantity greater than zero.");
+    $(function(){
+        $("#add").click(function () {
+            var qty = $("#qty").val();
+            if (qty) {
+                if (isNaN(qty) || qty <= 0) {
+                    $("#error").html("Enter a valid quantity greater than zero.");
+                    $("#error").show();
+                    return;
+                }
+            } else {
+                $("#error").html("Enter a valid quantity");
                 $("#error").show();
                 return;
             }
-        } else {
-            $("#error").html("Enter a valid quantity");
-            $("#error").show();
-            return;
-        }
-        $("#addForm").submit();
+            $("#addForm").submit();
+        });
     });
-
 </script>
 </body>
 </html>

@@ -33,11 +33,14 @@
 <script language="javascript">
     $(function () {
         $(".box").fancybox({
-            'type':'ajax',
+            'type':'iframe',
             'transitionIn':'elastic',
             'transitionOut':'elastic',
+            'easingIn':'easeOutBack',
+            'easingOut':'easeInBack',
             'overlayColor':'#000',
-            'overlayOpacity':'0.7'
+            'overlayOpacity':'0.7',
+            'height': 400
         });
     });
 </script>
