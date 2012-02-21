@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ include file="header.jsp" %>
 <div id="page_content">
     <div class="title">
@@ -52,7 +53,7 @@
             for (McImage image : bucketList) {
                 String imageName = image.getImageName();
     %>
-    <a href="/web/details/<%=image.getImageName()%>/<%=image.getBucketName()%>/gallery" class="box">
+    <a href='/web/details?image=<%=image.getImageName()%>&bucket=<%=image.getBucketName()%>&page=gallery' class="box">
         <img src="<%=image.getUrl()%>" width="100" height="100" alt="<%=image.getImageDescription()%>"
              title="<%=image.getImageDescription()%>" class="gallery"/>
     </a>

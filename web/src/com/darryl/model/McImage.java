@@ -10,10 +10,9 @@ package com.darryl.model;
 public class McImage {
     private String bucketName = "";
     private String imageName = "";
-    public static final String smallExt = "-150x150.gif";
-    public static final String longExt = "-668x351.gif";
     public static final String url = "https://s3.amazonaws.com/";
     public static final double cost = 39.99;
+    public static final String BG = "_BG";
 
     public McImage(String bucketname, String imagename){
         bucketName = bucketname;
@@ -29,7 +28,7 @@ public class McImage {
     }
 
     public String getImageDescription() {
-        return imageName.replace('_',' ').replace('-',' ');
+        return imageName.substring(0, imageName.lastIndexOf(".")-1).replace('_',' ').replace('-',' ');
     }
 
     public String getBucketName() {
@@ -42,6 +41,10 @@ public class McImage {
 
     public String getUrl(){
         return url + "/" + bucketName + "/" + imageName;
+    }
+
+    public String getBGUrl(){
+        return url + "/" + bucketName + BG + "/" + imageName;
     }
 
     @Override

@@ -11,7 +11,7 @@
             <ul class="footer_menu">
                 <li><a href="/web/index" class="nav2">home</a></li>
                 <%
-                    if(admin == null){
+                    if (admin == null) {
                 %>
                 <li><a href="/web/gallery" class="nav2">gallery</a></li>
                 <li><a href="/web/contact" class="nav2">contact</a></li>
@@ -31,14 +31,13 @@
 </div>
 </body>
 <script language="javascript">
-    $(function(){
+    $(function () {
         $(".box").fancybox({
-            'transitionIn'	: 'elastic',
-            'transitionOut'	: 'elastic',
-            'easingIn'      : 'easeOutBack',
-            'easingOut'     : 'easeInBack',
-            'overlayColor'	: '#000',
-            'overlayOpacity' : '0.7'
+            'type':'ajax',
+            'transitionIn':'elastic',
+            'transitionOut':'elastic',
+            'overlayColor':'#000',
+            'overlayOpacity':'0.7'
         });
     });
 </script>

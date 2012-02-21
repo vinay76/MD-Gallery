@@ -41,17 +41,7 @@
         <div class="title">
             Add to Order
         </div>
-            <%
-                if(pageName == null || pageName.equals("index")){
-            %>
-        <form action="/web/order/<%=imageName.getImageName()%>" id="addForm" method="post">
-                <%
-                }else{
-            %>
         <form action="/web/order/<%=imageName.getImageName()%>/<%=imageName.getBucketName()%>" id="addForm" method="post">
-            <%
-                }
-            %>
             <input type="hidden" name="page" value="<%=pageName%>"/>
             <div class="content_text">
                 Quantity:&nbsp;&nbsp;<input type="text" size="4" maxlength="3" value="1" id="qty" name="qty"/>

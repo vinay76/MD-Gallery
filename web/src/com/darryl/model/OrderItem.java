@@ -3,8 +3,10 @@ package com.darryl.model;
 import java.io.Serializable;
 
 import javax.jdo.annotations.*;
+import javax.persistence.OneToMany;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
+//@OneToMany(mappedBy = "")
 public class OrderItem implements Serializable{
     private static final long serialVersionUID = -2740374621543432373L;//TODO: update it
 

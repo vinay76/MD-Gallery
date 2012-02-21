@@ -18,21 +18,15 @@ import org.springframework.web.context.ServletContextAware;
 
 import javax.servlet.ServletContext;
 
-public class S3Service implements ServletContextAware {
-
-    public static final String IMAGES = "images";
-
-    private Map<String, List<McImage>> images;
-    private ServletContext servletContext;
-
+public class S3Service {
     public Map<String, List<McImage>> getBucketInformation(MyCredentials credentials) {
-        if (this.servletContext != null && this.servletContext.getAttribute(IMAGES) != null) {
-            return (Map<String, List<McImage>>) this.servletContext.getAttribute(IMAGES);
-        }
         Map<String, List<McImage>> returnMap = new HashMap<String, List<McImage>>();
         AmazonS3 amazonS3 = new AmazonS3Client(new MyCredentials());
         List<Bucket> buckets = amazonS3.listBuckets();
         for (Bucket bucket : buckets) {
+            if(bucket.getName().endsWith(McImage.BG)){//ignore folders with big images
+                continue;
+            }
             ListObjectsRequest listObjectsRequest = new ListObjectsRequest();
             listObjectsRequest.setBucketName(bucket.getName());
             ObjectListing listObjects = amazonS3.listObjects(listObjectsRequest);
@@ -43,13 +37,6 @@ public class S3Service implements ServletContextAware {
             }
             returnMap.put(bucket.getName(), images);
         }
-        images = returnMap;
         return returnMap;
-    }
-
-    public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-        images = getBucketInformation(new MyCredentials());
-        servletContext.setAttribute(IMAGES, images);
     }
 }

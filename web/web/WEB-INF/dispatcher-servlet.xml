@@ -5,8 +5,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean class="com.darryl.service.S3Service" scope="singleton"/>
-
 	<context:component-scan base-package="com.darryl.controllers" />
 
 	<bean id="viewResolver"

@@ -5,10 +5,7 @@ import com.darryl.model.Order;
 import com.darryl.model.OrderItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,7 +17,7 @@ import java.util.Map;
 public class MainController extends AbstractController {
     @RequestMapping("/index")
     public String main(Model model, HttpServletRequest request) {
-        List<McImage> recentList = bucketInformation.get("recent");
+        List<McImage> recentList = bucketInformation.get("recent_tn");
 //		model.addAttribute("recent", recentList);
         request.setAttribute("recent", recentList);
         return "index";
@@ -51,8 +48,8 @@ public class MainController extends AbstractController {
         return "contact";
     }
 
-    @RequestMapping("/details/{imagename}/{bucketname}/{page}")
-    public String details(Model model, @PathVariable(value = "imagename") String imagename, @PathVariable(value = "bucketname") String bucketname, @PathVariable(value = "page") String page, HttpServletRequest request) {
+    @RequestMapping("/details")
+    public String details(Model model, @RequestParam(value = "image") String imagename, @RequestParam(value = "bucket") String bucketname, @RequestParam(value = "page") String page, HttpServletRequest request) {
         request.setAttribute("image", new McImage(bucketname, imagename));
         request.setAttribute("page", page);
         return "details";

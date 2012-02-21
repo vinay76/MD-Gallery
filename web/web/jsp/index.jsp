@@ -67,7 +67,7 @@
             if (recentImages != null && recentImages.size() > 0) {
                 for (McImage image : recentImages) {
         %>
-        <a href="/web/details/<%=image.getImageName()%>/<%=image.getBucketName()%>/index" class="box">
+        <a href='/web/details?image=<%=image.getImageName()%>&bucket=<%=image.getBucketName()%>&page=index' class="box">
             <img src="<%=image.getUrl()%>" width="100" height="100"
                  alt="<%=image.getImageDescription()%>" title="<%=image.getImageDescription()%>" class="gallery"/>
         </a>

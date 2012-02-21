@@ -20,7 +20,7 @@ import com.darryl.service.S3Service;
 public class AbstractController {
 
 	public static final String IMAGES = "images";
-	protected Map<String, List<McImage>> bucketInformation;
+	protected static Map<String, List<McImage>> bucketInformation;
 	
 
 	@ModelAttribute
