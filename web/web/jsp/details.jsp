@@ -29,8 +29,8 @@
         Photo size: <span style="color: black; font-weight: bolder;">13" x 19"</span>
         <br/>
     </div>
-    <div style="color:red" id="error" class="hide"></div>
     <br/>
+    <div style="color:red" id="error" class="hide"></div>
 
     <div class="title">
         Add to Order

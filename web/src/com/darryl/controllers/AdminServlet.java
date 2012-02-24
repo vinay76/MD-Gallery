@@ -1,8 +1,6 @@
 package com.darryl.controllers;
 
 import com.darryl.model.Order;
-import com.darryl.service.OrderService;
-import com.darryl.service.OrderServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

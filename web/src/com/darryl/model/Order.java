@@ -19,6 +19,10 @@ public class Order implements Serializable{
     Long orderId;
 
     Customer customer;
+
+    @Persistent
+    private Long customerId;
+
     List<OrderItem> items;
 
     @Persistent
@@ -197,5 +201,34 @@ public class Order implements Serializable{
 
     public void setAdminNotes(String adminNotes) {
         this.adminNotes = adminNotes;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public void copy(Order order) {
+        this.orderId = order.getOrderId();
+        this.customerId = order.getCustomerId();
+        this.addressLine1 = order.getAddressLine1();
+        this.addressLine2 = order.getAddressLine2();
+        this.state = order.getState();
+        this.city = order.getCity();
+        this.zip = order.getZip();
+        this.comments = order.getComments();
+        this.totalPrice = order.getTotalPrice();
+        this.coupon = order.getCoupon();
+        this.shippingCost = order.getShippingCost();
+        this.status = order.getStatus();
+        this.adminShippedOn = order.getAdminShippedOn();
+        this.adminCarrier = order.getAdminCarrier();
+        this.adminTrackingNumber = order.getAdminShippedOn();
+        this.adminNotes = order.getAdminNotes();
+        this.items.clear();
+        this.items.addAll(order.getItems());
     }
 }
