@@ -36,7 +36,7 @@ public class MainController extends AbstractController {
 
     @RequestMapping("/gallery/{bucketname}")
     public String gallery(Model model, @PathVariable(value = "bucketname") String bucketname, HttpServletRequest request) {
-        request.setAttribute("images", bucketInformation.remove(McImage.RECENT));
+//        request.setAttribute("images", bucketInformation);
         request.setAttribute("bucketname", bucketname);//TODO: if bucket name ends with .com, that part is truncated
 //        model.addAttribute("images", bucketInformation);
 //        model.addAttribute("bucketname", bucketname);
