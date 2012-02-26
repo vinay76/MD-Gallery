@@ -36,7 +36,7 @@
         Add to Order
     </div>
     <form action="/web/order/<%=imageName.getImageName()%>/<%=imageName.getBucketName()%>" id="addForm"
-          method="post">
+          method="post" target="_top">
         <input type="hidden" name="page" value="<%=pageName%>"/>
         <table>
             <tr>
