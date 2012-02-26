@@ -13,6 +13,7 @@ public class McImage {
     public static final String url = "https://s3.amazonaws.com/";
     public static final double cost = 39.99;
     public static final String BG = "_BG";
+    public static final String RECENT = "NEW_PICS";
 
     public McImage(String bucketname, String imagename){
         bucketName = bucketname;

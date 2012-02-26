@@ -17,7 +17,7 @@ import java.util.Map;
 public class MainController extends AbstractController {
     @RequestMapping("/index")
     public String main(Model model, HttpServletRequest request) {
-        List<McImage> recentList = bucketInformation.get("recent_tn");
+        List<McImage> recentList = bucketInformation.get(McImage.RECENT);
 //		model.addAttribute("recent", recentList);
         request.setAttribute("recent", recentList);
         return "index";
@@ -36,7 +36,7 @@ public class MainController extends AbstractController {
 
     @RequestMapping("/gallery/{bucketname}")
     public String gallery(Model model, @PathVariable(value = "bucketname") String bucketname, HttpServletRequest request) {
-        request.setAttribute("images", bucketInformation);
+        request.setAttribute("images", bucketInformation.remove(McImage.RECENT));
         request.setAttribute("bucketname", bucketname);//TODO: if bucket name ends with .com, that part is truncated
 //        model.addAttribute("images", bucketInformation);
 //        model.addAttribute("bucketname", bucketname);

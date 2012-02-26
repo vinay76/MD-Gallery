@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class AdminServlet extends HttpServlet {
-    private OrderService orderService = new OrderServiceImpl();
+//    private OrderService orderService = new OrderServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,8 +29,8 @@ public class AdminServlet extends HttpServlet {
             request.getRequestDispatcher("jsp/admin/order.jsp").forward(request, response);
         } else if (action.equals("details")) {
             int orderId = Integer.parseInt(request.getParameter("orderid"));
-            Order order = orderService.getOrder(orderId);
-            request.setAttribute("pastOrders", orderService.getOrdersByCustomer(order.getCustomer().getId()));
+//            Order order = orderService.getOrder(orderId);
+//            request.setAttribute("pastOrders", orderService.getOrdersByCustomer(order.getCustomer().getId()));
             request.getRequestDispatcher("jsp/admin/orderDetails.jsp").forward(request, response);
         }
 
@@ -41,7 +42,7 @@ public class AdminServlet extends HttpServlet {
     }
 
     public List getOpenOrdersList() {
-        List openOrdersList = orderService.getOpenOrders();
+        List openOrdersList = new ArrayList();//orderService.getOpenOrders();
         return openOrdersList;
     }
 }

@@ -11,6 +11,7 @@
         String bucketname = (String) request.getAttribute("bucketname");
         Set<String> keys = null;
         if (images != null && images.size() > 0) {
+            images.remove(McImage.RECENT);
             keys = images.keySet();
         }
         int i = 0;
@@ -21,13 +22,13 @@
     <div class="details">
         <ul class="services">
             <li><a href="/web/gallery/<%=key%>"
-                   class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key%>
+                   class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key.replace("_"," ").replace("-"," ")%>
             </a></li>
             <%
             } else {
             %>
             <li><a href="/web/gallery/<%=key%>"
-                   class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key%>
+                   class="<%=key.equals(bucketname) ? "nav_services_a":"nav_services"%>"><%=key.replace("_"," ").replace("-"," ")%>
             </a></li>
         </ul>
     </div>
@@ -44,17 +45,17 @@
 %>
 
 <div class="title">
-    <%=bucketname%>
+    <%=bucketname.replace("_"," ").replace("-"," ")%>
 </div>
 <div class="content_text">
     <%
         List<McImage> bucketList = images.get(bucketname);
-        if (bucketList != null) {
+        if (bucketList != null && !bucketList.isEmpty()) {
             for (McImage image : bucketList) {
-                String imageName = image.getImageName();
+//                String imageName = image.getImageName();
     %>
     <a href='/web/details?image=<%=image.getImageName()%>&bucket=<%=image.getBucketName()%>&page=gallery' class="box">
-        <img src="<%=image.getUrl()%>" width="100" height="100" alt="<%=image.getImageDescription()%>"
+        <img src="<%=image.getUrl()%>" width="100" height="auto" alt="<%=image.getImageDescription()%>"
              title="<%=image.getImageDescription()%>" class="gallery"/>
     </a>
     <%

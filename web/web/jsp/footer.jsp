@@ -40,7 +40,8 @@
             'easingOut':'easeInBack',
             'overlayColor':'#000',
             'overlayOpacity':'0.7',
-            'height': 400
+            'width': 700,
+            'height': 700
         });
     });
 </script>

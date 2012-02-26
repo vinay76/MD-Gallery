@@ -14,9 +14,9 @@
     String pageName = (String) request.getAttribute("page");
 %>
 <div id="main_content1">
-    <div id="page_content1" style="text-align: center">
+    <div id="page_content1" style="text-align: center; background-color: white">
         <div>
-            <img src="<%=imageName.getUrl()%>" title="big" style="padding-top: 10px" align="middle"/>
+            <img src="<%=imageName.getBGUrl()%>" title="big" style="padding-top: 10px" align="middle"/>
             <%--<img src="<%=imageName.getUrl()%>" width="668" height="351" title="big" class="pic" align="middle"/>--%>
         </div>
     </div>

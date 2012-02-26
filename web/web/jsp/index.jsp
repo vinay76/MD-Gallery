@@ -68,7 +68,7 @@
                 for (McImage image : recentImages) {
         %>
         <a href='/web/details?image=<%=image.getImageName()%>&bucket=<%=image.getBucketName()%>&page=index' class="box">
-            <img src="<%=image.getUrl()%>" width="100" height="100"
+            <img src="<%=image.getUrl()%>" width="100" height="auto"
                  alt="<%=image.getImageDescription()%>" title="<%=image.getImageDescription()%>" class="gallery"/>
         </a>
         <%
@@ -80,14 +80,16 @@
             }
         %>
     </div>
-    <div class="more">
-        <div class="left">
-            <img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0" class="more"/>
+    <div class="content_text">
+        <div class="more">
+            <div class="left">
+                <img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0" class="more"/>
+            </div>
+            <div class="right"><a href="/web/gallery"> Visit gallery</a></div>
         </div>
-        <div class="right"><a href="/web/gallery"> Visit gallery</a></div>
     </div>
-
     <a href="#content-div" class="fancybox" id="warning_dialog"></a>
+
     <div style="display: none">
         <div id="content-div">
             <h2 style="color: red">You must be 18 years or older to enter.</h2>
@@ -104,13 +106,13 @@
     <script type="text/javascript">
         $(function () {
             var showWarning = $.cookie("showWarning");
-            if(showWarning == null || showWarning != 0){
+            if (showWarning == null || showWarning != 0) {
                 $("#warning_dialog").fancybox({'modal':true, 'autoScale':false, 'overlayColor':'#111111', 'overlayOpacity':0.9});
                 $('#warning_dialog').trigger('click')
             }
             $("#special").FontEffect({shadow:false, gradient:true});
         });
-        function closeWarning(){
+        function closeWarning() {
             $.cookie("showWarning", 0);
             $.fancybox.close();
         }
