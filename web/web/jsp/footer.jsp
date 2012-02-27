@@ -10,14 +10,8 @@
         <div>
             <ul class="footer_menu">
                 <li><a href="/web/index" class="nav2">home</a></li>
-                <%
-                    if (admin == null) {
-                %>
                 <li><a href="/web/gallery" class="nav2">gallery</a></li>
                 <li><a href="/web/contact" class="nav2">contact</a></li>
-                <%
-                    }
-                %>
             </ul>
         </div>
         <!--

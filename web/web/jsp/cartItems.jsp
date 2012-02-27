@@ -1,7 +1,9 @@
+<%@ page import="com.darryl.model.McImage" %>
+<%@ page import="java.util.Map" %>
 <%@ page import="com.darryl.util.JSPUtil" %>
 <%
     Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
-//    int total = (Integer) session.getAttribute("totalQuantity");
+    int totalQty = (Integer) session.getAttribute("totalQuantity");
 %>
 <div class="title">
     Shopping Cart
@@ -46,7 +48,7 @@
         i++;
     }
     String coupon = "";
-    if (total >= 2) {
+    if (totalQty >= 2) {
         coupon = "2FREE";
     }
 %>
@@ -60,11 +62,11 @@
 <div class="title">
 </div>
 <div class="content_text">
-    <b>Total Quantity:</b> <%=total%><br/><br/>
-    <input type="hidden" id="total" name="totalPrice" value="<%=total%>"/>
+    <b>Total Quantity:</b> <%=totalQty%><br/><br/>
+    <input type="hidden" id="total" name="totalPrice" value="<%=totalQty%>"/>
     <b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value="<%=coupon%>" disabled readonly><br/><br/>
     <b>Shipping Cost:</b> $5.99 (USPS Priority Shipping)<br/><br/><br/>
-    <b>Total:</b> $<%=JSPUtil.applyCoupon(coupon, total) + 5.99%>
+    <b>Total:</b> $<%=JSPUtil.applyCoupon(coupon, totalQty) + 5.99%>
 </div>
 <%
     }

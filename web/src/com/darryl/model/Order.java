@@ -1,14 +1,18 @@
 package com.darryl.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import java.io.Serializable;
 
+import javax.jdo.annotations.Element;
+import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import javax.persistence.Transient;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Order implements Serializable{
@@ -16,14 +20,18 @@ public class Order implements Serializable{
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+//    @Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
     Long orderId;
 
+    @Transient
     Customer customer;
 
     @Persistent
-    private Long customerId;
+    private String customerId;
 
-    List<OrderItem> items;
+    @Persistent(mappedBy = "order")
+    @Element(dependent = "true")
+    List<OrderItem> items = new ArrayList<OrderItem>();;
 
     @Persistent
     private String addressLine1;
@@ -53,7 +61,7 @@ public class Order implements Serializable{
     private Double shippingCost;
 
     @Persistent
-    private String status;
+    private String status = "OPEN";
 
     @Persistent
     private String adminShippedOn;
@@ -203,11 +211,11 @@ public class Order implements Serializable{
         this.adminNotes = adminNotes;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

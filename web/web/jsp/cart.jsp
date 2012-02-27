@@ -1,7 +1,7 @@
-<%@ include file="header.jsp" %>
+<jsp:include page="header.jsp"/>
 <form id="orderform" action="/web/cart" method="POST">
     <div id="page_content_left">
-        <%@ include file="cartItems.jsp" %>
+        <jsp:include page="cartItems.jsp"/>
     </div>
 
     <div id="page_content_right">
@@ -277,4 +277,4 @@
         return error;
     }
 </script>
-<%@ include file="footer.jsp" %>
+<jsp:include page="footer.jsp" />

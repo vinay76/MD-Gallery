@@ -2,6 +2,7 @@ package com.darryl.model;
 
 import java.io.Serializable;
 
+import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -14,7 +15,8 @@ public class Customer implements Serializable {
 	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long id;
+	@Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
+	private String id;
 	
 	@Persistent
 	private String firstName;
@@ -28,11 +30,11 @@ public class Customer implements Serializable {
 	@Persistent
 	private String phone;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

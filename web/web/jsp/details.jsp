@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>McPherson Graphics - Details</title>
-    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 
     <script src="/js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 </head>

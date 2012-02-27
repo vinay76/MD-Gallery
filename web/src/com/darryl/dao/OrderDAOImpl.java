@@ -6,6 +6,9 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
+
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -15,11 +18,11 @@ import java.util.List;
  * Time: 9:46 PM
  * To change this template use File | Settings | File Templates.
  */
+@Repository
 public class OrderDAOImpl implements OrderDAO {
-    private static final PersistenceManagerFactory pmfInstance = JDOHelper.getPersistenceManagerFactory("transactions-optional");
 
-    public static PersistenceManagerFactory getPersistenceManagerFactory() {
-        return pmfInstance;
+	public static PersistenceManagerFactory getPersistenceManagerFactory() {
+        return DAOHelper.getPMF();
     }
 
     public List<Order> getOpenOrders() {
