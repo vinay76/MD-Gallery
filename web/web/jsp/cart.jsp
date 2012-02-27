@@ -141,13 +141,13 @@
                     <td align="right">
                         <label>Comments:</label>&nbsp;
                     </td>
-                    <td align="left">
-                        <textarea name="comments" id="comments" cols="50" rows="10" class="textarea"></textarea>&nbsp;(250
-                        chars limit)
+                    <td align="left" valign="bottom">
+                        <textarea name="comments" id="comments" cols="50" rows="10" class="textarea"></textarea>&nbsp;<label>(250
+                        chars limit)</label>
                     </td>
                 </tr>
             </table>
-
+            <strong>PS: Do not provide your Credit Card or payment information in the Comments section.</strong>
             <div class="clear"></div>
             <div style="padding-left:90px;">
                 <div class="right"><a href="#" id="order">Submit Order</a></div>

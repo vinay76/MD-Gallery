@@ -3,17 +3,16 @@
 <%@ page import="com.darryl.util.JSPUtil" %>
 <%
     Map<String, Integer> shoppingCart = (Map<String, Integer>) session.getAttribute("shoppingcart");
-    int totalQty = (Integer) session.getAttribute("totalQuantity");
+    Integer totalQty = (Integer) session.getAttribute("totalQuantity");
 %>
 <div class="title">
     Shopping Cart
 </div>
 <div class="content_text">
     Adjust quantities as needed. The online checkout option is coming soon. Please provide you contact details
-    and
-    you will be contacted soon for payment details.
+    and you will be contacted soon for payment details.
 </div>
-
+<br/>
 <div class="title">
     Order Details
     <input type="hidden" name="orderId" value="0"/>

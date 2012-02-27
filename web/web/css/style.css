@@ -6,6 +6,10 @@ body {
 	color: #ccc;
 }
 
+table tr td {
+    font-size: 11px;
+}
+
 h1 {
 	font-size: 15px;
 	color: #6C0008;
@@ -138,7 +142,7 @@ a.nav:hover {
 }
 
 .content_text {
-	font-size: 11px;
+	font-size: 12px;
 	color: #333333;
 	height: auto;
 	text-align: justify;
@@ -307,7 +311,7 @@ a.nav_services:hover {
 
 .input {
 	width: 140px;
-	height: 12px;
+	/*height: 12px;*/
 	font-size: 10px;
 	float: left;
 }
@@ -466,4 +470,12 @@ a.nav2:hover {
 
 .invalidField {
 	border: 1px solid red;
+}
+
+label {
+    color: #333333;
+}
+
+sup {
+    color: red;
 }
