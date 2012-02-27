@@ -12,7 +12,9 @@
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
+          <password>dff9dfdfdfc1dfcbdfc4dfd3dfcbdf92</password>
           <sdk-home-path>C:/Software/appengine-java-sdk-1.6.2</sdk-home-path>
+          <email>vinay76@gmail.com</email>
         </configuration>
       </facet>
     </facet>
