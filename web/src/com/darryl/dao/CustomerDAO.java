@@ -10,6 +10,8 @@ public interface CustomerDAO {
 	
 	public Customer getCustomer(Long customerId);
 	
+	public Customer getCustomer(String email);
+	
 	public Customer updateCustomer(Customer customer);
 	
 	public List<Customer> getAllCustomers();

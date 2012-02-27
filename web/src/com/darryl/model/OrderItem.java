@@ -6,26 +6,25 @@ import javax.jdo.annotations.*;
 import javax.persistence.OneToMany;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-//@OneToMany(mappedBy = "")
 public class OrderItem implements Serializable{
     private static final long serialVersionUID = -2740374621543432373L;//TODO: update it
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    Long Id;
+    @Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
+    String Id;
 
     @Persistent
     private String imageName;
-
-    @ForeignKey(table = "Order")
-    @Persistent
-    private Long orderId;
 
     @Persistent
     private Integer quantity;
 
     @Persistent
     private Double unitPrice;
+    
+    @Persistent
+    private Order order;
 
     public String getImageName() {
         return imageName;
@@ -43,19 +42,24 @@ public class OrderItem implements Serializable{
         this.quantity = quantity;
     }
 
-    public Long getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
+    public Order getOrder() {
+		return order;
+	}
 
-    public Long getId() {
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         Id = id;
     }
 

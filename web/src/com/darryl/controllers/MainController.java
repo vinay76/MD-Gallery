@@ -1,5 +1,6 @@
 package com.darryl.controllers;
 
+import com.darryl.model.Customer;
 import com.darryl.model.McImage;
 import com.darryl.model.Order;
 import com.darryl.model.OrderItem;
@@ -109,6 +110,9 @@ public class MainController extends AbstractController {
     @RequestMapping(value = "/cart/submit", method = RequestMethod.POST)
     public String submitCart(Model model, HttpServletRequest request, @ModelAttribute Order order) {
         //TODO:Do Something with Order
+    	Customer createCustomer = customerDAO.createCustomer(order.getCustomer());
+    	order.setCustomerId(createCustomer.getId());
+    	Order submitOrder = orderDAO.submitOrder(order);
         return "cart";
     }
 
