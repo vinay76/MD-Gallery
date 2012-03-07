@@ -63,9 +63,15 @@
 <div class="content_text">
     <b>Total Quantity:</b> <%=totalQty%><br/><br/>
     <input type="hidden" id="total" name="totalPrice" value="<%=totalQty%>"/>
-    <b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value="<%=coupon%>" disabled readonly><br/><br/>
-    <b>Shipping Cost:</b> $5.99 (USPS Priority Shipping)<br/><br/><br/>
-    <b>Total:</b> $<%=JSPUtil.applyCoupon(coupon, totalQty) + 5.99%>
+    <br/>
+    <b><em>[Coupons are automatically applied to a qualifying order]</em></b>
+    <br/>
+    <br/>
+    <%--<b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value="<%=coupon%>" disabled readonly><br/><br/>--%>
+    <b>Shipping Cost:</b> $5.99 (USPS Priority Shipping)<br/>
+    <hr/><p style="font-size: 1.5em">
+    <b>Total:</b> <%=JSPUtil.applyCoupon(coupon, totalQty, 5.99)%>
+    </p>
 </div>
 <%
     }

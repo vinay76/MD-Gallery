@@ -168,8 +168,8 @@
         </div>
     </div>
 </form>
-<div id="page_bottom">
-    <div id="soon" class="special">
+<div id="page_bottom" align="center">
+    <div id="soon" class="special" align="center">
         COMING SOON!!!
         Google Checkout & Paypal OPTIONS
     </div>

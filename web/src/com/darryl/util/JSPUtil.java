@@ -2,6 +2,8 @@ package com.darryl.util;
 
 import com.darryl.model.McImage;
 
+import java.text.NumberFormat;
+
 /**
  * Created by IntelliJ IDEA.
  * User: vkumar
@@ -10,9 +12,7 @@ import com.darryl.model.McImage;
  * To change this template use File | Settings | File Templates.
  */
 public class JSPUtil {
-    public static double applyCoupon(String coupon, int qty){
-        double cost = 0.00;
-
-        return qty* McImage.cost;
+    public static String applyCoupon(String coupon, int qty, double shipping){
+        return NumberFormat.getCurrencyInstance().format(qty* McImage.cost + shipping);
     }
 }
