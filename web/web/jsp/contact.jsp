@@ -49,32 +49,33 @@
     <form id="contactform" action="/web/contact" method="POST">
         <div id="login">
             <label>Name:</label><br/>
-            <input type="text" name="fullName" id="fullName" class="input"/><br/>
+            <input type="text" name="fullName" id="fullName" class="input" maxlength="40"/><br/>
 
             <div class="clear"></div>
             <label>Phone:</label><br/>
-            <input type="text" name="phone" id="phone" class="input"/>
+            <input type="text" name="phone" id="phone" class="input" maxlength="15"/>
 
             <div class="clear"></div>
             <label>Email:</label><br/>
-            <input type="text" name="email" id="email" class="input"/>
+            <input type="text" name="email" id="email" class="input" maxlength="30"/>
 
             <div class="clear"></div>
             <label>Web:</label><br/>
-            <input type="text" name="webUrl" id="webUrl" class="input"/>
+            <input type="text" name="webUrl" id="webUrl" class="input" maxlength="50"/>
 
             <div class="clear"></div>
             <sup>*</sup><label>Comments:</label><br/>
             <textarea name="comments" id="comments" cols="" rows="" class="textarea"></textarea>
 
             <div class="clear"></div>
-            <div style="padding-left:90px;">
-                <div class="right"><a href="/web/gallery">Send</a></div>
+            <div style="padding-left:90px;" id='contact'>
+                <div class="right"><a href="#">Send</a></div>
                 <div class="left"><img src="/images/more.jpg" width="20" height="20" alt="more" title="more" border="0"
                                        class="more"/></div>
             </div>
         </div>
     </form>
+    <div class="error" id="error"/>
 </div>
 
 <div id="page_bottom">
@@ -92,3 +93,17 @@
 </div>
 
 <%@ include file="footer.jsp" %>
+<script type="text/javascript">
+    $(function () {
+        $("#comments").click(function () {
+            $("#comments").removeClass("invalidField");
+            $('#error').html("");
+            if ($("comments").val() == "") {
+                $('#error').html("<li>No comments to send.</li>");
+                $("#comments").addClass("invalidField");
+                return;
+            }
+            $("#contactform").submit();
+        });
+    });
+</script>

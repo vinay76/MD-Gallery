@@ -1,9 +1,6 @@
 package com.darryl.controllers;
 
-import com.darryl.model.Customer;
-import com.darryl.model.McImage;
-import com.darryl.model.Order;
-import com.darryl.model.OrderItem;
+import com.darryl.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +43,18 @@ public class MainController extends AbstractController {
 
     @RequestMapping("/contact")
     public String contact(HttpServletRequest request) {
+        return "contact";
+    }
+
+    @RequestMapping(value="/contact", method = RequestMethod.POST)
+    public String contactUs(HttpServletRequest request, @ModelAttribute Contact contact) {
+        //send email to darryl
+        String subject = "You have received feedback from "+contact.getFullName();
+        StringBuffer message = new StringBuffer("Dear Webmaster,\nYou have received feedback from "+contact.getFullName()+".\n");
+        message.append("\n Email: "+contact.getEmail());
+        message.append("\n Phone: "+contact.getPhone());
+        message.append("\n Web Url: "+contact.getWebUrl());
+        message.append("\n\n \""+contact.getComments()+"\"");
         return "contact";
     }
 

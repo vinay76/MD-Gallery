@@ -64,6 +64,6 @@
 </div>
 <div id="main_content">
     <div id="top_banner1" style="background-color:white;padding-bottom:5px">
-        <a href="/graphics"><img src="/images/logo2.png" width="850" height="207" alt="McPherson Graphics" title="McPherson Graphics" border="0"/></a>
+        <a href="/web/index"><img src="/images/logo2.png" width="850" height="207" alt="McPherson Graphics" title="McPherson Graphics" border="0"/></a>
     </div>
     
