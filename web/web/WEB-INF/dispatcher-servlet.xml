@@ -11,5 +11,9 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/jsp/" p:suffix=".jsp" />
-
+    
+    <bean id="mailService" class="com.darryl.service.MailService">
+        <property name="toEmail" value="vinay76@gmail.com"/>
+        <property name="fromEmail" value="vinay76@gmail.com"/>
+    </bean>
 </beans>

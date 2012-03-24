@@ -16,17 +16,14 @@ public class MainController extends AbstractController {
     @RequestMapping("/index")
     public String main(Model model, HttpServletRequest request) {
         List<McImage> recentList = bucketInformation.get(McImage.RECENT);
-//		model.addAttribute("recent", recentList);
         request.setAttribute("recent", recentList);
         return "index";
     }
 
     @RequestMapping("/gallery")
     public String gallery(Model model, HttpServletRequest request) {
-//		model.addAttribute("images", bucketInformation);
         request.setAttribute("images", bucketInformation);
         if (bucketInformation != null && bucketInformation.size() > 0) {
-//		    model.addAttribute("bucketname", bucketInformation.keySet().toArray()[0]);
             request.setAttribute("bucketname", bucketInformation.keySet().toArray()[0]);
         }
         return "gallery";
@@ -34,10 +31,8 @@ public class MainController extends AbstractController {
 
     @RequestMapping("/gallery/{bucketname}")
     public String gallery(Model model, @PathVariable(value = "bucketname") String bucketname, HttpServletRequest request) {
-//        request.setAttribute("images", bucketInformation);
-        request.setAttribute("bucketname", bucketname);//TODO: if bucket name ends with .com, that part is truncated
-//        model.addAttribute("images", bucketInformation);
-//        model.addAttribute("bucketname", bucketname);
+        request.setAttribute("images", bucketInformation);
+        request.setAttribute("bucketname", bucketname);
         return "gallery";
     }
 
@@ -55,6 +50,10 @@ public class MainController extends AbstractController {
         message.append("\n Phone: "+contact.getPhone());
         message.append("\n Web Url: "+contact.getWebUrl());
         message.append("\n\n \""+contact.getComments()+"\"");
+
+        mailService.sendMail(subject, message.toString());
+
+        request.setAttribute("successMessage", "Thanks for providing feedback. Your input is appreciated.");
         return "contact";
     }
 
@@ -122,6 +121,7 @@ public class MainController extends AbstractController {
     	Customer createCustomer = customerDAO.createCustomer(order.getCustomer());
     	order.setCustomerId(createCustomer.getId());
     	Order submitOrder = orderDAO.submitOrder(order);
+
         return "cart";
     }
 

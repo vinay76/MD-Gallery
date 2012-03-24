@@ -34,7 +34,7 @@
     <input type="hidden" name="items[<%=i%>].id" value="0"/>
     <input type="hidden" name="items[<%=i%>].imageName" value="<%=imageS%>"/>
     <input type="hidden" name="items[<%=i%>].unitPrice" value="<%=McImage.cost%>"/>
-    <img src="<%=image.getUrl()%>" width="100" height="100"
+    <img src="<%=image.getUrl()%>" width="100" height="70"
          alt="<%=image.getImageDescription()%>" title="<%=image.getImageDescription()%>" class="gallery"/>
     <b>Photo Name:</b> <%=image.getImageName()%><br/>
     <b>Quantity:</b> <input type="text" size="3" maxlength="2" name="items[<%=i%>].quantity" id="items[<%=i%>].quantity" value="<%=qty%>"><br/><br/>
@@ -64,7 +64,7 @@
     <b>Total Quantity:</b> <%=totalQty%><br/><br/>
     <input type="hidden" id="total" name="totalPrice" value="<%=totalQty%>"/>
     <br/>
-    <b><em>[Coupons are automatically applied to a qualifying order]</em></b>
+    <b class="success"><em>[Coupons are automatically applied to a qualifying order]</em></b>
     <br/>
     <br/>
     <%--<b>Apply Coupon:</b> <input type="text" size="8" maxlength="8" value="<%=coupon%>" disabled readonly><br/><br/>--%>

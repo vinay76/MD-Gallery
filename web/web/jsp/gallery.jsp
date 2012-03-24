@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="java.net.URLEncoder" %>
 <%@ include file="header.jsp" %>
 <div id="page_content">
     <div class="title">
@@ -8,10 +7,10 @@
     </div>
     <%
         Map<String, List<McImage>> images = (Map<String, List<McImage>>) request.getAttribute("images");
+
         String bucketname = (String) request.getAttribute("bucketname");
         Set<String> keys = null;
         if (images != null && images.size() > 0) {
-//            images.remove(McImage.RECENT);
             keys = images.keySet();
         }
         int i = 0;

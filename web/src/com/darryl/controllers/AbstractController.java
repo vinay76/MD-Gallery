@@ -9,6 +9,7 @@ import com.darryl.dao.CustomerDAO;
 import com.darryl.dao.OrderDAO;
 import com.darryl.model.McImage;
 
+import com.darryl.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,9 @@ public class AbstractController {
 	@Autowired
 	OrderDAO orderDAO;
 	
+	@Autowired
+    MailService mailService;
+
 
 	@ModelAttribute
 	public void bootStrapImageData(HttpServletRequest request, Model model){

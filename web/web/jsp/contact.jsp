@@ -1,4 +1,8 @@
 <%@ include file="header.jsp" %>
+<%
+    String message = (String)pageContext.findAttribute("successMessage");
+    if(message == null) message = "";
+%>
 <div id="page_content_left">
     <div class="title">
         Contact Us
@@ -57,6 +61,7 @@
         </form>
         <br/><br/>
         <div class="error" id="error"></div>
+        <div class="success" id="success"><%=message%></div>
     </div>
 </div>
 <div id="page_bottom">
@@ -79,6 +84,7 @@
         $("#contact").click(function () {
             $("#comments").removeClass("invalidField");
             $('#error').html("");
+            $('#success').html("");
             if ($("#comments").val() == "") {
                 $('#error').html("<li>No comments to send.</li>");
                 $("#comments").addClass("invalidField");

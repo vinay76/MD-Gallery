@@ -468,6 +468,13 @@ a.nav2:hover {
 	background-color: #dcdcdc;
 }
 
+.success {
+	color: green;
+	font-size: 1em;
+	text-align: left;
+	background-color: #dcdcdc;
+}
+
 .invalidField {
 	border: 1px solid red;
 }
