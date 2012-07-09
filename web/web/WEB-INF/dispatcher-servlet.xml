@@ -14,6 +14,6 @@
     
     <bean id="mailService" class="com.darryl.service.MailService">
         <property name="toEmail" value="vinay76@gmail.com"/>
-        <property name="fromEmail" value="vinay76@gmail.com"/>
+        <property name="fromEmail" value="dwoodson@mcpherson-gallery.com"/>
     </bean>
 </beans>
